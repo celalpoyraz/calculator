@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid Layout Hesap Makinesi</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+</head>
+<body style="background-color: silver">
+	<div class="out">
+	<div class="wrapper">
+		<div class="process">
+			<div class="history"></div>
+				<input  type="number" id="text" name="" placeholder="0" >
+		</div>
+		<div class="container">
+			<button class="btn clear">C</button>
+			<button class="btn isOperator"><span id="divide">/</span></button>
+			<button id="btn7" class="btn">7</button>
+			<button id="btn8" class="btn">8</button>
+			<button id="btn9" class="btn">9</button>
+			<button class="btn isOperator"><span id="multiple">x</span></button>
+			<button id="btn4" class="btn">4</button>
+			<button id="btn5" class="btn">5</button>
+			<button id="btn6" class="btn">6</button>
+			<button class="btn isOperator"><span id="minus">-</span></button>
+			<button id="btn1" class="btn">1</button>
+			<button id="btn2" class="btn">2</button>
+			<button id="btn3" class="btn">3</button>
+			<button class="btn isOperator"><span id="sum">+</span></button>
+			
+			<button id="btn0" class="btn zero">0</button>
+			<button class="btn equals isOperator ">=</button>
+		</div>
+    </div>
+    </div>
+
+   <script>
+   	var number1=0;
+   	var number2=0;
+   	let durum=true;
+   	var number =0;
+   	var current=0;
+   	var result=0;
+   	var operator;
+   		$(function(){
+   			for(var i=0; i<10; i++){
+   				$("#btn"+i).click(function(){
+   					if(durum == true ){
+   						var value = $(this).html();
+   						number=number*10+parseInt(value);
+   						number1=number;
+   						$("#text").val(number1); 						
+   					}
+   					else{
+   						var value2 = $(this).html();
+   						current=current*10+parseInt(value2);						
+   						number2=current;
+   						$("#text").val(number2);
+   						
+   					}	
+   					$(".isOperator").click(function(){
+   						durum=false;
+   						operator=$(this).text();
+   						$("#text").html("");
+   						if(operator === "="){ 					
+   						$("#text").val(result);   										
+   						}
+   					});
+   					$(".clear").click(function(){
+   						$("#text").val("");
+   						result=0;
+   						number=0;
+   						current=0;
+   						durum=true;
+   						$(".history").html("");
+   						});
+   					if(operator === "+"){
+   						result=0;					
+   						result=number1+number2;
+   						$(".history").html(number1 +operator +number2);
+   					}
+   					else if(operator === "/"){
+   						result=0;
+   						result=number1/number2;
+   						$(".history").html(number1 +operator +number2);
+   					}
+   					else if(operator === "x"){
+   						result=0;
+   						result=number1*number2;
+   						$(".history").html(number1 +operator +number2);
+   					}
+   					else if(operator === "-"){
+   						result=0;
+   						result=number1-number2;
+   						$(".history").html(number1 +operator +number2);
+   					}
+   				});
+   			}
+		});	
+   </script> 
+</body>
+</html>

@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+.out{
+  width: %100;
+}
+.wrapper{
+  margin: 0 auto;
+
+/* Grid İşlemleri */
+
+display: grid;
+grid-template : 105px 275px / 380px ;
+grid-gap: 2px ;
+border:1px solid gray;
+}
+.process{
+    margin: 10px 0px 0px 10px;
+    border:1px solid gray;
+    background-color: white;
+  
+}
+.container{
+     /* Grid İşlemleri */
+   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-gap: 10px ;
+}
+.history{
+    width: 100%;
+    height: 30px;
+    text-align: right;
+    font-size: 15px;
+    margin-top: 4px;
+}
+.btn{
+    margin-left: 10px;
+    margin-top: 10px;
+    
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #111;
+    
+
+}
+.btn:hover{
+  background-color: orange;
+  font-size: 10px;
+}
+input{
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+
+  padding: 10px 10px;
+  width: 100%;
+  
+  color: #333;
+  text-align: right;
+  
+  border-radius: 0;
+}
+
+.clear,.zero   {
+  grid-column: span 3;
+}
+.clear{
+    background-color: #64B5F6;
+}
+.history{
+font-size: 30px;
+opacity: 0.7;
+}
+
+/* Responsive Tasarım İşlemleri.*/
+@media (min-width: 576px){
+  .out{
+    max-width: 540px;
+  }
+   input{
+    font-size: 10px;
+  }
+   .btn{
+    padding: 4px;
+  }
+  .wrapper{
+    width: 150px;
+  }
+  .container,.process{
+    width: 25%;
+  }
+}
+
+@media (min-width: 768px){
+  .out{
+    max-width: 720px;
+  }
+   input{
+    font-size: 20px;
+  }
+   .btn{
+    padding: 6px;
+  }
+  .wrapper{
+    width: 220px;
+  }
+  .container,.process{
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px){
+  .out{
+    max-width: 960px;
+  }
+   input{
+    font-size: 30px;
+  }
+   .btn{
+    padding: 8px;
+  }
+  .wrapper{
+    width: 320px;
+  }
+  .container,.process{
+    width: 75%;
+  }
+}
+
+@media (min-width: 1200px){
+  .out{
+    max-width: 1140px;
+  }
+  input{
+    font-size: 40px;
+  }
+  .btn{
+    padding: 10px;
+  }
+  .wrapper{
+    width: 420px;
+  }
+  .container,.process{
+    width: 100%;
+  }
+}
